@@ -45,24 +45,62 @@ def extract_info_and_summarize(text, api_key):
     model = genai.GenerativeModel('gemini-pro')
 
     prompt = f"""
-    Analyze the following text and provide:
-    1. Product Name
-    2. Brief Description (2-3 sentences)
-    3. Composition
-    4. Excipients with known effects
-    5. Dosage form
-    6. Posology
-    7. Warnings
-    8. Any other essential information
-    9. An overall summary of the text
-    10. Detailed Summary including:
-       a. Composition
-       b. Excipients with known effects
-       c. Dosage form
-       d. Posology
-       e. Warnings
+ # Analysis of Pharmaceutical Product
 
-    Provide a structured output with these details, clearly separating each item. Use markdown formatting for better readability.
+ 1. Product Name
+[Product Name]
+
+ 2. Brief Description
+[2-3 sentence description of the product]
+
+ 3. Composition
+- Active ingredient(s):
+  - [Ingredient 1]
+  - [Ingredient 2]
+  - ...
+
+ 4. Excipients with Known Effects
+- [Excipient 1]
+- [Excipient 2]
+- ...
+
+ 5. Dosage Form
+[Dosage form]
+
+ 6. Posology
+[Brief summary of dosage instructions]
+
+ 7. Warnings
+- [Warning 1]
+- [Warning 2]
+- ...
+
+ 8. Other Essential Information
+- [Information 1]
+- [Information 2]
+- ...
+
+ 9. Overall Summary
+[A concise summary of the key points from the text]
+
+ 10. Detailed Summary
+
+ a. Composition
+[Detailed information about the composition]
+
+ b. Excipients with Known Effects
+[Detailed information about excipients]
+
+ c. Dosage Form
+[Detailed description of the dosage form]
+
+ d. Posology
+[Detailed dosage instructions, including any variations for different patient groups or conditions]
+
+ e. Warnings
+[Comprehensive list of warnings and precautions] 
+
+
 
     Text: {text}
     """
